@@ -30,13 +30,10 @@ print("[INFO] building model...")
 model = Sequential()
 model.add(Dense(1024, input_shape=(32*32*3, ), activation="relu"))
 model.add(Dense(512, activation="relu"))
-model.add(Dense(256, activation="relu"))
-model.add(Dense(128, activation="relu"))
 model.add(Dense(10, activation="softmax"))
 
 print("[INFO] training network...")
-decay = 0.06/100
-opt = SGD(0.06, decay=decay, momentum=0.9)
+opt = SGD(0.01)
 model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=["accuracy"])
 H = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=100, batch_size=32)
 
