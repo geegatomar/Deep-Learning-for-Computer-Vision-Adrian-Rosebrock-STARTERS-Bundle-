@@ -5,4 +5,5 @@ ShallowNet :
 LeNet : 
               INPUT => CONV => RELU => POOL => CONV => RELU => POOL  => FC => RELU => FC
 
-VGG:
+MiniVGGNet:  
+              INPUT => ((CONV => RELU => BN) * 2 => POOL => DO) * 2  => FC => RELU => BN => DO => FC => SOFTMAX
